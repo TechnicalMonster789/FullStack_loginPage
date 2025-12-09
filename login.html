@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <title>Login / Register</title>
@@ -69,6 +69,8 @@
 <body>
 <div class="card">
     <h2>Register</h2>
+    <!-- For GitHub Pages this form won't really submit anywhere,
+         but keep the action so your Spring Boot app can still use it -->
     <form action="/register" method="post">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" required />
@@ -83,17 +85,9 @@
     </form>
 
     <div class="msg">
-        <!-- ✅ success message -->
-        <span class="msg-success"
-              th:if="${message}"
-              th:text="${message}">
-        </span>
-
-        <!-- ❌ error message -->
-        <span class="msg-error"
-              th:if="${error}"
-              th:text="${error}">
-        </span>
+        <!-- Static placeholders so the page looks fine on GitHub -->
+        <span class="msg-success" id="successMsg"></span>
+        <span class="msg-error" id="errorMsg"></span>
     </div>
 </div>
 </body>
